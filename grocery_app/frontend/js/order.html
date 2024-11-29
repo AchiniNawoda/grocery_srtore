@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> GSMS </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="csrf-token" content="kmapods5wQ5L1hn7rcR9OPst7EsN0gC7SrHh3m9K"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,700">
+    <link media="all" type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <link media="all" type="text/css" rel="stylesheet" href="css/style.css?v=1.0">
+    <link media="all" type="text/css" rel="stylesheet" href="css/custom.css?v=1.3.3">
+</head>
+<body class="tooltips">
+<div class="container">
+
+    <div class="header content rows-content-header">
+        <button class="button-menu-mobile show-sidebar" aria-label="Toggle Sidebar">
+            <i class="fa fa-bars"  aria-hidden="true"></i>
+        </button>
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav visible-lg visible-md limit-chars">
+                        <li class="breadcrumb-item">
+                            <a href="index.html" data-toggle="tooltip" data-placement="bottom" title="Dashboard">
+                                <i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="manage-product.html" data-toggle="tooltip" data-placement="bottom" title="Products">
+                                <i class="zmdi zmdi-assignment zmdi-hc-fw"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="right content-page">
+        <div class="body content rows scroll-y">
+            <form action="">
+                <div class="box-info full" id="taskFormContainer">
+                    <h2>
+                        New Order
+                        <input 
+                            name="customerName" 
+                            id="customerName" 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Customer Name" 
+                            style="max-width:230px; float: right; margin-top: -11px;" 
+                            aria-label="Customer Name"
+                            required>
+                    </h2>
+                    <div class="row mb-3 mt-0">
+                        <div class="col-sm-12">
+                            <!-- Header Row for Labels -->
+                            <div class="row g-2">
+                                <!-- Product Label -->
+                                <div class="col-sm-4">
+                                    <label for="productSelect" class="form-label">Product</label>
+                                </div>
+                                <!-- Price Label -->
+                                <div class="col-sm-3">
+                                    <label for="priceField" class="form-label">Price</label>
+                                </div>
+                                <!-- Quantity Label -->
+                                <div class="col-sm-2">
+                                    <label for="quantityField" class="form-label">Quantity</label>
+                                </div>
+                                <!-- Total Label and Add More Button -->
+                                <div class="col-sm-3 d-flex align-items-center justify-content-between">
+                                    <label for="totalField" class="form-label mb-0">Total</label>
+                                    <button 
+                                        class="btn btn-sm btn-primary" 
+                                        type="button" 
+                                        id="addMoreButton">
+                                        Add More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                </div>
+
+                <div class="product-box-extra" id="itemsInOrder">
+
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="box-info full p-3 mb-3 mt-0">
+                                <div class="col-sm-9 text-right">
+                                    <span><b>Total</b></span>
+                                </div>
+                                <div class="col-sm-3">
+                                    <b><input id="product_grand_total" name="product_grand_total" class="product-grand-total" value="0.0" required></input> Rs</b>
+                                    <button class="btn btn-sm btn-primary pull-right" type="button" id="saveOrder">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="product-box hidden">
+                <div class="row product-item">
+                    <div class="col-sm-12">
+                        <div class="box-info full p-3 mb-3 mt-0">
+                            <div class="row align-items-center">
+                                <!-- Product Dropdown -->
+                                <div class="col-sm-4">
+                                    <label for="productSelect" class="form-label">Product</label>
+                                    <select name="product" id="productSelect" class="form-control cart-product" style="max-width: 250px;">
+                                        <!-- Add product options dynamically -->
+                                    </select>
+                                </div>
+                        
+                                <!-- Product Price -->
+                                <div class="col-sm-3">
+                                    <label for="productPrice" class="form-label">Price</label>
+                                    <input 
+                                        id="productPrice" 
+                                        name="product_price" 
+                                        type="text" 
+                                        class="form-control product-price" 
+                                        value="0.0" 
+                                        readonly>
+                                </div>
+                        
+                                <!-- Quantity -->
+                                <div class="col-sm-2">
+                                    <label for="productQty" class="form-label">Quantity</label>
+                                    <input 
+                                        id="productQty" 
+                                        name="qty" 
+                                        type="number" 
+                                        min="1" 
+                                        step="1" 
+                                        class="form-control product-qty" 
+                                        value="1" 
+                                        style="max-width: 100px;" 
+                                        aria-label="Product Quantity" 
+                                        required>
+                                </div>
+                                
+                                <!-- Total and Remove Button -->
+                                <div class="col-sm-3">
+                                    <label for="itemTotal" class="form-label">Total</label>
+                                    <div class="d-flex align-items-center">
+                                        <input 
+                                            id="itemTotal" 
+                                            name="item_total" 
+                                            type="text" 
+                                            class="form-control product-total" 
+                                            readonly>
+                                        <span class="ms-2">Rs</span>
+                                        <button 
+                                            class="btn btn-sm btn-danger ms-3 remove-row" 
+                                            type="button">
+                                            Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/packages/jquery.min.js"></script>
+<script src="js/custom/common.js"></script>
+<script src="js/custom/order.js"></script>
+</html>
